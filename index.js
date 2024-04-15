@@ -5,18 +5,76 @@ const generateMarkdown = require('./utils/generateMarkdown.js');
 
 // TODO: Create an array of questions for user input
 const questions = [
-    
+    {
+        type: 'input',
+        name: 'title',
+        message: 'What is the title of your project?'
+    },
+    {
+        type: 'input',
+        name: 'description',
+        message: 'What is your project description?'
+    },
+    {
+        type: 'input',
+        name: 'installation',
+        message: 'What does your project installation require?'
+    },
+    {
+        type: 'input',
+        name: 'usage',
+        message: 'How is your project used?'
+    },
+    {
+        type: 'list',
+        name: 'license',
+        message: 'Which license is for this project?',
+        choices: ['ISC', 'MIT', 'GNU', 'Apache', 'Mozilla'],
+        default: 'ISC'
+    },
+    {
+        type: 'input',
+        name: 'contributing',
+        message: 'How does someone contribute to your project?'
+    },
+    {
+        type: 'input',
+        name: 'tests',
+        message: 'What are some project tests?'
+    },
+    {
+        type: 'input',
+        name: 'questions',
+        message: 'If someone has questions, what GitHub profile should we ask?'
+    }
 ];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) =>
+        err ? console.error(err) : console.log('Success!')
+    );
 
-
-    generateMarkdown();
+    generateMarkdown(data); // Function inside generateMarkdown.js file
 }
 
+console.log('----------README Generator----------')
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer
+    .prompt(questions)
+    .then((answers) => {
+        console.log(answers);
+        writeToFile('README.md', answers); // Use user feedback for writing new file function
+    })
+    .catch((error) => {
+        if (error.isTtyError) {
+            console.log('Error with current environment'); // Prompt couldn't be rendered in the current environment
+        } else {
+            console.log('Something went wrong.'); // Something else went wrong
+        }
+    });
+}
 
 // Function call to initialize app
 init();
