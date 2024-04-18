@@ -44,18 +44,26 @@ const questions = [
     },
     {
         type: 'input',
+        name: 'credits',
+        message: 'Do any credits or acknowledgments need to be made?'
+    },
+    {
+        type: 'input',
+        name: 'github',
+        message: 'What GitHub profile link is the creator and maintainer?'
+    },
+    {
+        type: 'input',
         name: 'questions',
-        message: 'If someone has questions, what GitHub profile should we ask?'
+        message: 'If someone has questions, what email can they use to reach you?'
     }
 ];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, (err) =>
+    fs.writeFile(fileName, generateMarkdown(data), (err) =>
         err ? console.error(err) : console.log('Success!')
     );
-
-    generateMarkdown(data); // Function inside generateMarkdown.js file
 }
 
 console.log('----------README Generator----------')
@@ -71,6 +79,7 @@ function init() {
         if (error.isTtyError) {
             console.log('Error with current environment'); // Prompt couldn't be rendered in the current environment
         } else {
+            console.log(error);
             console.log('Something went wrong.'); // Something else went wrong
         }
     });

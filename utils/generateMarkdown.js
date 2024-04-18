@@ -43,15 +43,15 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license) {
   switch (license) {
     case 'ISC':
-      return `This project is licensed under the ${license} - see the [LICENSE.md](LICENSE.md) file for details.`;
+      return `This project is licensed under the ${license} License - see the [LICENSE.md](LICENSE.md) file for details.`;
     case 'MIT':
-      return `This project is licensed under the ${license} - see the [LICENSE.md](LICENSE.md) file for details.`;
+      return `This project is licensed under the ${license} License - see the [LICENSE.md](LICENSE.md) file for details.`;
     case 'GNU':
-      return `This project is licensed under the ${license} - see the [LICENSE.md](LICENSE.md) file for details.`;
+      return `This project is licensed under the ${license} License - see the [LICENSE.md](LICENSE.md) file for details.`;
     case 'Apache':
-      return `This project is licensed under the ${license} - see the [LICENSE.md](LICENSE.md) file for details.`;
+      return `This project is licensed under the ${license} License - see the [LICENSE.md](LICENSE.md) file for details.`;
     case 'Mozilla':
-      return `This project is licensed under the ${license} - see the [LICENSE.md](LICENSE.md) file for details.`;
+      return `This project is licensed under the ${license} License - see the [LICENSE.md](LICENSE.md) file for details.`;
     default:
       console.log('No Project License');
       return '';
@@ -61,22 +61,32 @@ function renderLicenseSection(license) {
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
-  ## Description
-  ### ${data.description}
+  ${data.description}
   ## Table of Contents
-  ### ${data.contents}
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [License](#license)
+  - [Contributing](#contributing)
+  - [Tests](#tests)
+  - [Questions](#questions)
+  - [Credits](#credits)
   ## Installation
-  ### ${data.installation}
+  ${data.installation}
   ## Usage
-  ### ${data.usage}
+  ${data.usage}
   ## License
-  ### ${renderLicenseBadge(license), renderLicenseLink(license), renderLicenseSection(license)};
+  ![License Badge](${renderLicenseBadge(data.license)})<br />
+  [License Guide](${renderLicenseLink(data.license)})<br />
+  ${renderLicenseSection(data.license)}
   ## Contributing
-  ### ${data.contributing}
+  ${data.contributing}
   ## Tests
-  ### ${data.tests}
+  ${data.tests}
   ## Questions
-  ### ${data.questions}
+  [GitHub Profile](${data.github})<br />
+  If you have additional questions, please email me at ${data.questions}.
+  ## Credits
+  ${data.credits}
 `;
 }
 
