@@ -11,7 +11,8 @@
   ## Installation
   Steps to kickstart the project:<br />1. **Copy Link**: Hit the "Code" button in this GitHub repo to copy the link.<br />2. **Clone**: In GitBash, execute the command `git clone [paste link here]`.<br />3. **NPM**: Install Node Package Manager with `npm init -y`.<br />4. **Inquirer**: Get npm's inquirer package by running `npm install inquirer`.
   ## Usage
-  Once the software is downloaded and Node packages are initialized, let's begin!<br /><br />Navigate to the project directory and initiate prompts using `node index.js`.<br /><br />Then, simply input the necessary project information, and voila! A new README file will be generated.
+  Once the software is downloaded and Node packages are initialized, let's begin!<br /><br />Navigate to the project directory and initiate prompts using `node index.js`.<br /><br />Then, simply input the necessary project information, and voila! A new README file will be generated.<br />
+  [Link to video demo of README Generator](https://drive.google.com/file/d/1Y-Vkb7LIPCX1cr5C0Y6N80GtxbAAZbfq/view?usp=drive_link)
   ## License
   ![License Badge](https://img.shields.io/badge/License-ISC-blue.svg)<br />
   [License Guide](https://opensource.org/licenses/ISC)<br />
